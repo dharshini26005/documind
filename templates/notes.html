@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}
+Study Notes
+{% endblock %}
+
+{% block content %}
+
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='notes.css') }}"
+>
+
+<div class="summary-page">
+
+<div class="summary-header">
+
+<a href="/" class="back-btn">
+
+← Back to Dashboard
+
+</a>
+
+<h1>
+
+📝 Study Notes
+
+</h1>
+
+<p>
+
+Generate well-structured AI Study Notes from your PDFs.
+
+</p>
+
+</div>
+
+<div class="upload-card">
+
+<form
+
+action="{{ url_for('notes.generate_notes') }}"
+
+method="POST"
+
+enctype="multipart/form-data"
+
+id="notesForm"
+
+>
+
+<div class="upload-box">
+
+<div class="upload-icon">
+
+📝
+
+</div>
+
+<h2>
+
+Upload PDF
+
+</h2>
+
+<p>
+
+Choose your study material.
+
+</p>
+
+<input
+
+type="file"
+
+id="pdf"
+
+name="pdf"
+
+accept=".pdf"
+
+required
+
+>
+
+<label
+
+for="pdf"
+
+class="choose-btn"
+
+>
+
+Choose PDF
+
+</label>
+
+<div id="filename"></div>
+
+</div>
+
+<button
+
+type="submit"
+
+class="generate-btn"
+
+>
+
+Generate Notes
+
+</button>
+
+</form>
+
+</div>
+
+<div
+
+id="loading"
+
+class="loading"
+
+>
+
+<div class="loader"></div>
+
+<h3>
+
+Generating Notes...
+
+</h3>
+
+</div>
+
+{% if notes %}
+
+<div class="summary-card">
+
+<div class="summary-title">
+
+<h2>
+
+📚 AI Study Notes
+
+</h2>
+
+<button
+
+onclick="copySummary()"
+
+class="copy-btn"
+
+>
+
+Copy
+
+</button>
+
+</div>
+
+<pre id="summaryText">
+
+{{ notes }}
+
+</pre>
+
+</div>
+
+{% endif %}
+
+</div>
+
+<script
+
+src="{{ url_for('static', filename='notes.js') }}"
+
+></script>
+
+{% endblock %}

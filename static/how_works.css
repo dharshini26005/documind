@@ -1,0 +1,263 @@
+/* ==========================
+   HOW IT WORKS
+========================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Segoe UI',sans-serif;
+
+}
+
+.summary-page{
+
+    min-height:100vh;
+
+    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+
+    padding:60px 20px;
+
+}
+
+.summary-header{
+
+    text-align:center;
+
+    color:white;
+
+    margin-bottom:60px;
+
+}
+
+.summary-header h1{
+
+    font-size:48px;
+
+    margin:20px 0;
+
+}
+
+.summary-header p{
+
+    color:#cbd5e1;
+
+    font-size:18px;
+
+}
+
+.back-btn{
+
+    color:#60a5fa;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.back-btn:hover{
+
+    color:white;
+
+}
+
+.workflow{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+.step{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.step:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.35);
+
+}
+
+.icon{
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+}
+
+.step h3{
+
+    color:white;
+
+    margin-bottom:15px;
+
+}
+
+.step p{
+
+    color:#cbd5e1;
+
+}
+
+.arrow{
+
+    text-align:center;
+
+    font-size:40px;
+
+    color:#60a5fa;
+
+    margin:15px;
+
+}
+
+.glass-card{
+
+    width:90%;
+
+    max-width:1100px;
+
+    margin:60px auto;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    padding:40px;
+
+}
+
+.glass-card h2{
+
+    color:white;
+
+    margin-bottom:30px;
+
+    text-align:center;
+
+}
+
+.glass-card p{
+
+    color:#cbd5e1;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+}
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.feature-card{
+
+    background:#1e293b;
+
+    color:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.feature-card:hover{
+
+    background:#2563eb;
+
+    transform:translateY(-5px);
+
+}
+
+.tech-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:20px;
+
+}
+
+.tech-grid span{
+
+    background:#2563eb;
+
+    color:white;
+
+    text-align:center;
+
+    padding:16px;
+
+    border-radius:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.tech-grid span:hover{
+
+    transform:scale(1.05);
+
+}
+
+@media(max-width:768px){
+
+.summary-header h1{
+
+font-size:36px;
+
+}
+
+.glass-card{
+
+width:95%;
+
+padding:25px;
+
+}
+
+}

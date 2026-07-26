@@ -1,0 +1,406 @@
+/* ==========================
+   Smart Summary Page
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+.summary-page{
+
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+    padding:50px 20px;
+}
+
+.summary-header{
+
+    text-align:center;
+    color:white;
+    margin-bottom:40px;
+}
+
+.summary-header h1{
+
+    font-size:48px;
+    margin-top:20px;
+    margin-bottom:15px;
+}
+
+.summary-header p{
+
+    font-size:18px;
+    color:#cbd5e1;
+}
+
+.back-btn{
+
+    color:#60a5fa;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.back-btn:hover{
+
+    color:white;
+}
+
+/* Upload Card */
+
+.upload-card{
+
+    width:80%;
+    max-width:850px;
+
+    margin:auto;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+
+}
+
+.upload-box{
+
+    border:2px dashed #60a5fa;
+
+    border-radius:20px;
+
+    padding:45px;
+
+    text-align:center;
+
+    transition:.4s;
+}
+
+.upload-box:hover{
+
+    border-color:#38bdf8;
+
+    background:rgba(255,255,255,.03);
+}
+
+.upload-icon{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+}
+
+.upload-box h2{
+
+    color:white;
+
+    margin-bottom:15px;
+}
+
+.upload-box p{
+
+    color:#cbd5e1;
+
+    margin-bottom:20px;
+}
+
+input[type=file]{
+
+    display:none;
+}
+
+.choose-btn{
+
+    display:inline-block;
+
+    padding:12px 30px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.choose-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+}
+
+#filename{
+
+    margin-top:20px;
+
+    color:#93c5fd;
+
+    font-weight:600;
+}
+
+.generate-btn{
+
+    width:100%;
+
+    margin-top:35px;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(90deg,#3b82f6,#2563eb);
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.generate-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 30px rgba(37,99,235,.4);
+}
+
+/* Loading */
+
+.loading{
+
+    display:none;
+
+    text-align:center;
+
+    margin-top:40px;
+
+    color:white;
+}
+
+.loader{
+
+    width:60px;
+
+    height:60px;
+
+    border:6px solid rgba(255,255,255,.2);
+
+    border-top:6px solid #3b82f6;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+    margin:auto auto 20px;
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+    }
+}
+
+/* Summary */
+
+.summary-card{
+
+    width:85%;
+
+    max-width:950px;
+
+    margin:50px auto;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:35px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+
+    animation:fade .6s;
+}
+
+.summary-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.summary-title h2{
+
+    color:#1e293b;
+}
+
+.copy-btn{
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:10px 22px;
+
+    border-radius:25px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.copy-btn:hover{
+
+    background:#1d4ed8;
+}
+
+.document-name{
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+    font-weight:600;
+}
+
+.summary-card pre{
+
+    white-space:pre-wrap;
+
+    line-height:1.9;
+
+    font-size:16px;
+
+    color:#334155;
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.upload-card{
+
+width:95%;
+
+padding:25px;
+
+}
+
+.summary-card{
+
+width:95%;
+
+}
+
+.summary-title{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.summary-header h1{
+
+font-size:36px;
+
+}
+
+}
+
+.search-input{
+
+width:100%;
+
+padding:18px;
+
+border:none;
+
+border-radius:15px;
+
+margin-bottom:25px;
+
+font-size:17px;
+
+outline:none;
+
+background:white;
+
+}
+
+.result-card{
+
+background:#f8fafc;
+
+padding:20px;
+
+border-left:5px solid #2563eb;
+
+border-radius:15px;
+
+margin-bottom:20px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.result-card pre{
+
+white-space:pre-wrap;
+
+font-size:15px;
+
+line-height:1.8;
+
+font-family:inherit;
+
+color:#334155;
+
+}

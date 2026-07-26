@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+
+{% block title %}
+AI Chat
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='chat.css') }}">
+
+<div class="summary-page">
+
+    <!-- Header -->
+
+    <div class="summary-header">
+
+        <a href="/" class="back-btn">
+
+            ← Back to Dashboard
+
+        </a>
+
+        <h1>
+
+            🤖 AI Document Chat
+
+        </h1>
+
+        <p>
+
+            Upload a PDF and ask intelligent questions using Retrieval-Augmented Generation (RAG).
+
+        </p>
+
+    </div>
+
+    <!-- Upload Card -->
+
+    <div class="upload-card">
+
+        <form
+
+            action="{{ url_for('chat.upload_document') }}"
+
+            method="POST"
+
+            enctype="multipart/form-data"
+
+            id="uploadForm"
+
+        >
+
+            <div class="upload-box">
+
+                <div class="upload-icon">
+
+                    📄
+
+                </div>
+
+                <h2>
+
+                    Upload Document
+
+                </h2>
+
+                <p>
+
+                    Upload your PDF to build an AI-powered knowledge base.
+
+                </p>
+
+                <input
+
+                    type="file"
+
+                    id="pdf"
+
+                    name="pdf"
+
+                    accept=".pdf"
+
+                    required
+
+                >
+
+                <label
+
+                    for="pdf"
+
+                    class="choose-btn"
+
+                >
+
+                    Choose PDF
+
+                </label>
+
+                <div id="filename"></div>
+
+            </div>
+
+            <button
+
+                type="submit"
+
+                class="generate-btn"
+
+            >
+
+                🚀 Upload & Process
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- Ask Question -->
+
+    {% if uploaded %}
+
+    <div class="upload-card">
+
+        <h2 style="color:white;text-align:center;margin-bottom:25px;">
+
+            💬 Ask Anything
+
+        </h2>
+
+        <form
+
+            action="{{ url_for('chat.ask_question') }}"
+
+            method="POST"
+
+        >
+
+            <textarea
+
+                class="chat-input"
+
+                name="question"
+
+                rows="5"
+
+                placeholder="Example: Explain the architecture discussed in the document."
+
+                required
+
+            ></textarea>
+
+            <button
+
+                type="submit"
+
+                class="generate-btn"
+
+            >
+
+                🤖 Ask AI
+
+            </button>
+
+        </form>
+
+    </div>
+
+    {% endif %}
+
+    <!-- AI Response -->
+
+    {% if answer %}
+
+    <div class="summary-card">
+
+        <div class="summary-title">
+
+            <h2>
+
+                🤖 AI Response
+
+            </h2>
+
+        </div>
+
+        <!-- User Question -->
+
+        <div class="question-box">
+
+            <strong>Your Question</strong>
+
+            <br><br>
+
+            {{ question }}
+
+        </div>
+
+        <!-- AI Answer -->
+
+        <div class="answer-box">
+
+            {{ answer }}
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+<script src="{{ url_for('static', filename='chat.js') }}"></script>
+
+{% endblock %}

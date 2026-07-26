@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}Smart Summary{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='summary.css') }}">
+
+<div class="summary-page">
+
+    <div class="summary-header">
+
+        <a href="/" class="back-btn">
+            ← Back to Dashboard
+        </a>
+
+        <h1>📄 Smart Summary</h1>
+
+        <p>
+            Generate AI-powered summaries from your PDF documents in seconds.
+        </p>
+
+    </div>
+
+    <div class="upload-card">
+
+        <form
+            action="{{ url_for('summary.generate_summary') }}"
+            method="POST"
+            enctype="multipart/form-data"
+            id="summaryForm"
+        >
+
+            <div class="upload-box">
+
+                <div class="upload-icon">
+
+                    📄
+
+                </div>
+
+                <h2>Upload PDF</h2>
+
+                <p>
+
+                    Drag & Drop your file here
+
+                    <br>
+
+                    or
+
+                </p>
+
+                <input
+                    type="file"
+                    id="pdf"
+                    name="pdf"
+                    accept=".pdf"
+                    required
+                >
+
+                <label for="pdf" class="choose-btn">
+
+                    Choose PDF
+
+                </label>
+
+                <div id="filename"></div>
+
+            </div>
+
+            <button type="submit" class="generate-btn">
+
+                🚀 Generate Summary
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <div id="loading" class="loading">
+
+        <div class="loader"></div>
+
+        <h3>Generating AI Summary...</h3>
+
+        <p>Please wait while DocuMind analyzes your document.</p>
+
+    </div>
+
+    {% if summary %}
+
+    <div class="summary-card">
+
+        <div class="summary-title">
+
+            <h2>✨ AI Generated Summary</h2>
+
+            <button onclick="copySummary()" class="copy-btn">
+
+                📋 Copy
+
+            </button>
+
+        </div>
+
+        {% if filename %}
+
+        <div class="document-name">
+
+            📄 {{ filename }}
+
+        </div>
+
+        {% endif %}
+
+        <pre id="summaryText">{{ summary }}</pre>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+<script src="{{ url_for('static', filename='summary.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Flowchart Generator
+
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='flowchart.css') }}">
+
+<div class="summary-page">
+
+    <div class="summary-header">
+
+        <a href="/" class="back-btn">
+
+            ← Back to Dashboard
+
+        </a>
+<h1>🧠 AI Mind Map Generator</h1>
+
+        <p>
+Upload your PDF and generate an interactive AI Mind Map.
+</p>
+
+    </div>
+
+    <div class="upload-card">
+
+        <form
+
+        action="{{ url_for('mindmap.generate_mindmap') }}"
+
+        method="POST"
+
+        enctype="multipart/form-data"
+
+        id="mindmapForm"
+
+        >
+
+            <div class="upload-box">
+
+                <div class="upload-icon">
+
+                    📊
+
+                </div>
+
+                <h2>
+
+                    Upload PDF
+
+                </h2>
+
+                <p>
+
+                    Choose a document to generate a flowchart.
+
+                </p>
+
+                <input
+
+                    type="file"
+
+                    id="pdf"
+
+                    name="pdf"
+
+                    accept=".pdf"
+
+                    required
+
+                >
+
+                <label
+
+                    for="pdf"
+
+                    class="choose-btn"
+
+                >
+
+                    Choose PDF
+
+                </label>
+
+                <div id="filename"></div>
+
+            </div>
+
+            <button
+
+                class="generate-btn"
+
+                type="submit"
+
+            >
+
+                🚀Generate Mind Map
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <div
+
+        id="loading"
+
+        class="loading"
+
+    >
+
+        <div class="loader"></div>
+
+        <h3>
+
+            Generating Mindmap...
+
+        </h3>
+
+    </div>
+
+    {% if diagram %}
+
+    <div class="summary-card">
+
+        <div class="summary-title">
+
+            <h2>
+
+                📊 Generated Mindmap
+
+            </h2>
+
+        </div>
+
+        {% if filename %}
+
+        <div class="document-name">
+
+            📄 {{ filename }}
+
+        </div>
+
+        {% endif %}
+
+        <div class="mermaid">
+
+{{ diagram|safe }}
+
+</div>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+<script src="{{ url_for('static', filename='flowchart.js') }}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+<script>
+    mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });
+</script>
+
+{% endblock %}

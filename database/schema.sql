@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS documents(
+
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    filename TEXT NOT NULL,
+
+    upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    status TEXT
+
+);

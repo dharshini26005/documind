@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+
+{% block title %}
+How It Works
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='how_works.css') }}">
+
+<div class="summary-page">
+
+    <div class="summary-header">
+
+        <a href="/" class="back-btn">
+
+            ← Back to Dashboard
+
+        </a>
+
+        <h1>
+
+            ⚙️ How DocuMind Studio Works
+
+        </h1>
+
+        <p>
+
+            Discover how Artificial Intelligence transforms your PDF documents into intelligent insights.
+
+        </p>
+
+    </div>
+
+    <!-- Workflow -->
+
+    <div class="workflow">
+
+        <div class="step">
+
+            <div class="icon">📄</div>
+
+            <h3>Upload PDF</h3>
+
+            <p>Select any PDF document.</p>
+
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+
+            <div class="icon">📚</div>
+
+            <h3>Extract Text</h3>
+
+            <p>Extract text using PDFPlumber.</p>
+
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+
+            <div class="icon">✂️</div>
+
+            <h3>Chunk Text</h3>
+
+            <p>Split into semantic chunks.</p>
+
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+
+            <div class="icon">🧠</div>
+
+            <h3>Create Embeddings</h3>
+
+            <p>SentenceTransformer converts text into vectors.</p>
+
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+
+            <div class="icon">🗄️</div>
+
+            <h3>Store in ChromaDB</h3>
+
+            <p>Vector database stores embeddings.</p>
+
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+
+            <div class="icon">🤖</div>
+
+            <h3>AI Processing</h3>
+
+            <p>Groq Llama generates intelligent responses.</p>
+
+        </div>
+
+    </div>
+
+    <!-- AI Features -->
+
+    <div class="glass-card">
+
+        <h2>🚀 AI Features Powered</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">📄 Smart Summary</div>
+
+            <div class="feature-card">📝 Study Notes</div>
+
+            <div class="feature-card">🧠 Mind Maps</div>
+
+            <div class="feature-card">📊 Flowcharts</div>
+
+            <div class="feature-card">🔍 Semantic Search</div>
+
+            <div class="feature-card">🤖 AI Chat</div>
+
+        </div>
+
+    </div>
+
+    <!-- Technology Stack -->
+
+    <div class="glass-card">
+
+        <h2>💻 Technology Stack</h2>
+
+        <div class="tech-grid">
+
+            <span>Flask</span>
+
+            <span>Groq API</span>
+
+            <span>Llama 3.1</span>
+
+            <span>LangChain</span>
+
+            <span>Sentence Transformers</span>
+
+            <span>ChromaDB</span>
+
+            <span>PDFPlumber</span>
+
+            <span>SQLite</span>
+
+            <span>HTML</span>
+
+            <span>CSS</span>
+
+            <span>JavaScript</span>
+
+        </div>
+
+    </div>
+
+    <!-- RAG -->
+
+    <div class="glass-card">
+
+        <h2>🧠 Retrieval-Augmented Generation (RAG)</h2>
+
+        <p>
+
+            Instead of generating answers from general knowledge, DocuMind Studio retrieves the most relevant content from your uploaded document using semantic search. That retrieved context is then sent to the Large Language Model (Llama 3.1 via Groq), ensuring responses are grounded in your document, reducing hallucinations and improving accuracy.
+
+        </p>
+
+    </div>
+
+    <!-- Benefits -->
+
+    <div class="glass-card">
+
+        <h2>✨ Benefits</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">⚡ Fast Processing</div>
+
+            <div class="feature-card">🧠 AI Powered</div>
+
+            <div class="feature-card">🔍 Context Aware</div>
+
+            <div class="feature-card">📚 Interactive Learning</div>
+
+            <div class="feature-card">📈 Productivity</div>
+
+            <div class="feature-card">🎯 Accurate Results</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='how_works.js') }}"></script>
+
+{% endblock %}

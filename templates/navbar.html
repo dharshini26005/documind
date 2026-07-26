@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold logo" href="/">
+
+            <i class="bi bi-file-earmark-text-fill"></i>
+
+            DocuMind Studio
+
+        </a>
+
+        <button
+                class="navbar-toggler"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="navbar">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="#features">
+
+                        Features
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="{{ url_for('how.how_page') }}">
+
+                        How it Works
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item ms-3">
+
+                    <a
+                            class="btn btn-primary px-4 rounded-pill"
+
+                            href="#features">
+
+                        Upload PDF
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
