@@ -1,6 +1,7 @@
+
 from flask import Flask, render_template
 from config import *
-
+import os
 import sqlite3
 from routes.upload_routes import upload_bp
 from routes.summary_routes import summary_bp
@@ -19,6 +20,8 @@ app = Flask(__name__)
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config["SECRET_KEY"] = SECRET_KEY
+
+os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
 
 # -------------------------------
