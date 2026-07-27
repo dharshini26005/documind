@@ -1,8 +1,8 @@
-
 from flask import Flask, render_template
 from config import *
 import os
 import sqlite3
+
 from routes.upload_routes import upload_bp
 from routes.summary_routes import summary_bp
 from routes.notes_routes import notes_bp
@@ -21,7 +21,13 @@ app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config["SECRET_KEY"] = SECRET_KEY
 
-os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
+
+# -------------------------------
+# Create Required Folders
+# -------------------------------
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+os.makedirs(GENERATED_FOLDER, exist_ok=True)
+os.makedirs(CHROMA_PATH, exist_ok=True)
 
 
 # -------------------------------
@@ -41,6 +47,9 @@ app.register_blueprint(how_bp)
 # Initialize Database
 # -------------------------------
 def init_db():
+
+    os.makedirs(os.path.dirname(DATABASE), exist_ok=True)
+
     conn = sqlite3.connect(DATABASE)
 
     with open("database/schema.sql") as f:
@@ -68,6 +77,6 @@ if __name__ == "__main__":
 
     app.run(
         host="0.0.0.0",
-        port=5000,
+        port=int(os.environ.get("PORT", 5000)),
         debug=False
     )
