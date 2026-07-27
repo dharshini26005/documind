@@ -1,13 +1,10 @@
 from sentence_transformers import SentenceTransformer
-
 import chromadb
 
 
 class EmbeddingService:
 
-    model = SentenceTransformer(
-        "all-MiniLM-L6-v2"
-    )
+    model = None
 
     client = chromadb.PersistentClient(
         path="chroma_db"
@@ -18,13 +15,28 @@ class EmbeddingService:
     )
 
     @classmethod
+    def get_model(cls):
+
+        if cls.model is None:
+
+            print("Loading SentenceTransformer model...")
+
+            cls.model = SentenceTransformer(
+                "all-MiniLM-L6-v2"
+            )
+
+        return cls.model
+
+    @classmethod
     def save_embeddings(
         cls,
         document_id,
         chunks
     ):
 
-        embeddings = cls.model.encode(chunks)
+        model = cls.get_model()
+
+        embeddings = model.encode(chunks)
 
         for i, chunk in enumerate(chunks):
 
@@ -37,7 +49,6 @@ class EmbeddingService:
                 embeddings=[embeddings[i].tolist()],
 
                 metadatas=[
-
                     {
                         "document_id": document_id,
                         "chunk": i
